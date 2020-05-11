@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2020-05-10 Sun 20:50 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Pointer Document</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Matt Brigida, Ph.D." />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/styles/readtheorg/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/styles/readtheorg/js/readtheorg.js"></script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2017 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">The Pointer Document</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orge9a5b63">1. Declaring Pointers</a>
+<ul>
+<li><a href="#orgda67013">1.1. Size in Memory</a></li>
+<li><a href="#orged5dc67">1.2. Basic Use</a></li>
+<li><a href="#org1ecdbe6">1.3. Use: Call by Reference</a></li>
+</ul>
+</li>
+<li><a href="#org3cb0087">2. Function Pointers</a>
+<ul>
+<li><a href="#orgd8c45ce">2.1. Use: Calling Different Functions</a></li>
+</ul>
+</li>
+<li><a href="#org02dcae8">3. Pointers to Pointers</a>
+<ul>
+<li><a href="#orgaf690cc">3.1. Use:</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge9a5b63" class="outline-2">
+<h2 id="orge9a5b63"><span class="section-number-2">1</span> Declaring Pointers</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orgda67013" class="outline-3">
+<h3 id="orgda67013"><span class="section-number-3">1.1</span> Size in Memory</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Here we'll declare pointers of different types and check their size in memory.  The results are form running on a 64 bit machine.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #d33682;">#include</span><span style="color: #2aa198;">&lt;stdio.h&gt;</span>
+<span style="color: #586e75; font-style: italic;">//</span><span style="color: #586e75; font-style: italic;">declare variables of different types</span>
+<span style="color: #268bd2;">int</span> <span style="color: #6c71c4;">i</span> = 1;
+<span style="color: #268bd2;">char</span> <span style="color: #6c71c4;">c</span> = <span style="color: #2aa198;">"c"</span>;
+<span style="color: #268bd2;">double</span> <span style="color: #6c71c4;">d</span> = 3.14;
+<span style="color: #268bd2;">float</span> <span style="color: #6c71c4;">f</span> = 1.61;
+<span style="color: #268bd2;">unsigned</span> <span style="color: #268bd2;">int</span> <span style="color: #6c71c4;">ui</span> = 400;
+<span style="color: #268bd2;">long</span> <span style="color: #268bd2;">int</span> <span style="color: #6c71c4;">li</span> = 4000;
+<span style="color: #268bd2;">unsigned</span> <span style="color: #268bd2;">char</span> <span style="color: #6c71c4;">uc</span> = <span style="color: #2aa198;">"u"</span>;
+
+<span style="color: #586e75; font-style: italic;">//</span><span style="color: #586e75; font-style: italic;">create pointers to variables</span>
+<span style="color: #268bd2;">int</span> *<span style="color: #6c71c4;">pi</span> = &amp;i;
+<span style="color: #268bd2;">char</span> *<span style="color: #6c71c4;">pc</span> = &amp;c;
+<span style="color: #586e75; font-style: italic;">//</span><span style="color: #586e75; font-style: italic;">can also put the * on the type</span>
+<span style="color: #268bd2;">double</span>* <span style="color: #6c71c4;">pd</span> = &amp;d;
+<span style="color: #268bd2;">float</span>* <span style="color: #6c71c4;">pf</span> = &amp;f;
+<span style="color: #268bd2;">unsigned</span> <span style="color: #268bd2;">int</span> *<span style="color: #6c71c4;">pui</span> = &amp;ui;
+<span style="color: #268bd2;">long</span> <span style="color: #268bd2;">int</span> *<span style="color: #6c71c4;">pli</span> = &amp;li;
+<span style="color: #268bd2;">unsigned</span> <span style="color: #268bd2;">char</span> *<span style="color: #6c71c4;">puc</span> = &amp;uc;
+
+printf(<span style="color: #2aa198;">"The size of an int %zu bytes, size of pointer to int %zu bytes \n"</span>, <span style="color: #859900;">sizeof</span> i, <span style="color: #859900;">sizeof</span> pi);
+printf(<span style="color: #2aa198;">"The size of an char %zu bytes, size of pointer to char %zu bytes \n"</span>, <span style="color: #859900;">sizeof</span> c, <span style="color: #859900;">sizeof</span> pc);
+printf(<span style="color: #2aa198;">"The size of an double %zu bytes, size of pointer to double %zu bytes \n"</span>, <span style="color: #859900;">sizeof</span> d, <span style="color: #859900;">sizeof</span> pd);
+
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">The size of an int 4 bytes</td>
+<td class="org-left">size of pointer to int 8 bytes</td>
+</tr>
+
+<tr>
+<td class="org-left">The size of an char 1 bytes</td>
+<td class="org-left">size of pointer to char 8 bytes</td>
+</tr>
+
+<tr>
+<td class="org-left">The size of an double 8 bytes</td>
+<td class="org-left">size of pointer to double 8 bytes</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+It looks like, while different types take up differing amount of memory, the size of all pointers are 8 bytes regardless of the type to which they point.  
+</p>
+</div>
+</div>
+
+<div id="outline-container-orged5dc67" class="outline-3">
+<h3 id="orged5dc67"><span class="section-number-3">1.2</span> Basic Use</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+Here we show how to use pointers.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org1ecdbe6" class="outline-3">
+<h3 id="org1ecdbe6"><span class="section-number-3">1.3</span> Use: Call by Reference</h3>
+</div>
+</div>
+
+
+
+<div id="outline-container-org3cb0087" class="outline-2">
+<h2 id="org3cb0087"><span class="section-number-2">2</span> Function Pointers</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgd8c45ce" class="outline-3">
+<h3 id="orgd8c45ce"><span class="section-number-3">2.1</span> Use: Calling Different Functions</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+In the example below we'll use a pointer to a function to allow the user to decide whether to apply the sum, subtract, or divide function to the supplied numbers. 
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #d33682;">#include</span><span style="color: #2aa198;">&lt;stdio.h&gt;</span>
+
+<span style="color: #586e75; font-style: italic;">//</span><span style="color: #586e75; font-style: italic;">Instead of user input define global variables</span>
+<span style="color: #d33682;">#define</span> <span style="color: #6c71c4;">FUN</span> = 2
+<span style="color: #d33682;">#define</span> <span style="color: #6c71c4;">NUM1</span> = 7
+<span style="color: #d33682;">#define</span> <span style="color: #6c71c4;">NUM2</span> = 4
+
+<span style="color: #586e75; font-style: italic;">//</span><span style="color: #586e75; font-style: italic;">define different functions</span>
+<span style="color: #268bd2;">int</span> <span style="color: #b58900;">sum</span>(<span style="color: #268bd2;">int</span> <span style="color: #6c71c4;">a</span>, <span style="color: #268bd2;">int</span> <span style="color: #6c71c4;">b</span>){<span style="color: #859900;">return</span> a + b;}
+<span style="color: #268bd2;">int</span> <span style="color: #b58900;">subtract</span>(<span style="color: #268bd2;">int</span> <span style="color: #6c71c4;">a</span>, <span style="color: #268bd2;">int</span> <span style="color: #6c71c4;">b</span>){<span style="color: #859900;">return</span> a - b;}
+<span style="color: #268bd2;">int</span> <span style="color: #b58900;">divide</span>(<span style="color: #268bd2;">int</span> <span style="color: #6c71c4;">a</span>, <span style="color: #268bd2;">int</span> <span style="color: #6c71c4;">b</span>){<span style="color: #859900;">return</span> ((<span style="color: #268bd2;">double</span>) a) / ((<span style="color: #268bd2;">double</span>) b);}
+
+<span style="color: #586e75; font-style: italic;">//</span><span style="color: #586e75; font-style: italic;">pointer to function</span>
+<span style="color: #268bd2;">int</span> (<span style="color: #268bd2;">funptr</span>*)();
+
+<span style="color: #268bd2;">int</span>
+<span style="color: #b58900;">main</span>(){
+
+
+
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org02dcae8" class="outline-2">
+<h2 id="org02dcae8"><span class="section-number-2">3</span> Pointers to Pointers</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orgaf690cc" class="outline-3">
+<h3 id="orgaf690cc"><span class="section-number-3">3.1</span> Use:</h3>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Matt Brigida, Ph.D.</p>
+<p class="date">Created: 2020-05-10 Sun 20:50</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

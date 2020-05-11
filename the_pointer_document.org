@@ -1,0 +1,90 @@
+#+title: The Pointer Document
+#+author: Matt Brigida, Ph.D.
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup
+
+* Declaring Pointers
+
+
+** Size in Memory
+
+Here we'll declare pointers of different types and check their size in memory.  The results are form running on a 64 bit machine.
+
+#+BEGIN_SRC C :exports both
+#include<stdio.h>
+//declare variables of different types
+int i = 1;
+char c = "c";
+double d = 3.14;
+float f = 1.61;
+unsigned int ui = 400;
+long int li = 4000;
+unsigned char uc = "u";
+
+//create pointers to variables
+int *pi = &i;
+char *pc = &c;
+//can also put the * on the type
+double* pd = &d;
+float* pf = &f;
+unsigned int *pui = &ui;
+long int *pli = &li;
+unsigned char *puc = &uc;
+
+printf("The size of an int %zu bytes, size of pointer to int %zu bytes \n", sizeof i, sizeof pi);
+printf("The size of an char %zu bytes, size of pointer to char %zu bytes \n", sizeof c, sizeof pc);
+printf("The size of an double %zu bytes, size of pointer to double %zu bytes \n", sizeof d, sizeof pd);
+
+#+END_SRC
+
+#+RESULTS:
+| The size of an int 4 bytes    | size of pointer to int 8 bytes    |
+| The size of an char 1 bytes   | size of pointer to char 8 bytes   |
+| The size of an double 8 bytes | size of pointer to double 8 bytes |
+
+It looks like, while different types take up differing amount of memory, the size of all pointers are 8 bytes regardless of the type to which they point.  
+
+** Basic Use
+   
+Here we show how to use pointers.
+
+
+** Use: Call by Reference
+
+
+
+* Function Pointers
+
+** Use: Calling Different Functions
+
+In the example below we'll use a pointer to a function to allow the user to decide whether to apply the sum, subtract, or divide function to the supplied numbers. 
+
+#+BEGIN_SRC C :exports both
+  #include<stdio.h>
+
+  //Instead of user input define global variables
+  #define FUN = 2
+  #define NUM1 = 7
+  #define NUM2 = 4
+
+  //define different functions
+  int sum(int a, int b){return a + b;}
+  int subtract(int a, int b){return a - b;}
+  int divide(int a, int b){return ((double) a) / ((double) b);}
+
+  //pointer to function
+  int (funptr*)();
+
+  int
+  main(){
+
+
+  
+  }
+#+END_SRC
+
+
+* Pointers to Pointers
+
+
+** Use: 
+
