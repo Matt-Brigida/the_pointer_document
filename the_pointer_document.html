@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-05-10 Sun 20:50 -->
+<!-- 2020-05-21 Thu 15:14 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Pointer Document</title>
@@ -240,33 +240,34 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orge9a5b63">1. Declaring Pointers</a>
+<li><a href="#org3fc8b43">1. Declaring Pointers</a>
 <ul>
-<li><a href="#orgda67013">1.1. Size in Memory</a></li>
-<li><a href="#orged5dc67">1.2. Basic Use</a></li>
-<li><a href="#org1ecdbe6">1.3. Use: Call by Reference</a></li>
+<li><a href="#orgf8b93f5">1.1. Size in Memory</a></li>
+<li><a href="#org5f56d58">1.2. Basic Use</a></li>
+<li><a href="#orgfe0160d">1.3. Use: Call by Reference</a></li>
 </ul>
 </li>
-<li><a href="#org3cb0087">2. Function Pointers</a>
+<li><a href="#org9d071d9">2. Function Pointers</a>
 <ul>
-<li><a href="#orgd8c45ce">2.1. Use: Calling Different Functions</a></li>
+<li><a href="#orgfd15222">2.1. Simple But Useless Example</a></li>
+<li><a href="#orgedbb75b">2.2. Use: Calling Different Functions</a></li>
 </ul>
 </li>
-<li><a href="#org02dcae8">3. Pointers to Pointers</a>
+<li><a href="#org7799ad4">3. Pointers to Pointers</a>
 <ul>
-<li><a href="#orgaf690cc">3.1. Use:</a></li>
+<li><a href="#orgfde7d3b">3.1. Use:</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orge9a5b63" class="outline-2">
-<h2 id="orge9a5b63"><span class="section-number-2">1</span> Declaring Pointers</h2>
+<div id="outline-container-org3fc8b43" class="outline-2">
+<h2 id="org3fc8b43"><span class="section-number-2">1</span> Declaring Pointers</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgda67013" class="outline-3">
-<h3 id="orgda67013"><span class="section-number-3">1.1</span> Size in Memory</h3>
+<div id="outline-container-orgf8b93f5" class="outline-3">
+<h3 id="orgf8b93f5"><span class="section-number-3">1.1</span> Size in Memory</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Here we'll declare pointers of different types and check their size in memory.  The results are form running on a 64 bit machine.
@@ -332,8 +333,8 @@ It looks like, while different types take up differing amount of memory, the siz
 </div>
 </div>
 
-<div id="outline-container-orged5dc67" class="outline-3">
-<h3 id="orged5dc67"><span class="section-number-3">1.2</span> Basic Use</h3>
+<div id="outline-container-org5f56d58" class="outline-3">
+<h3 id="org5f56d58"><span class="section-number-3">1.2</span> Basic Use</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 Here we show how to use pointers.
@@ -342,20 +343,52 @@ Here we show how to use pointers.
 </div>
 
 
-<div id="outline-container-org1ecdbe6" class="outline-3">
-<h3 id="org1ecdbe6"><span class="section-number-3">1.3</span> Use: Call by Reference</h3>
+<div id="outline-container-orgfe0160d" class="outline-3">
+<h3 id="orgfe0160d"><span class="section-number-3">1.3</span> Use: Call by Reference</h3>
 </div>
 </div>
 
 
 
-<div id="outline-container-org3cb0087" class="outline-2">
-<h2 id="org3cb0087"><span class="section-number-2">2</span> Function Pointers</h2>
+<div id="outline-container-org9d071d9" class="outline-2">
+<h2 id="org9d071d9"><span class="section-number-2">2</span> Function Pointers</h2>
 <div class="outline-text-2" id="text-2">
+<p>
+A function pointer points to a point in memory which is the start of a series of instructions.  
+</p>
 </div>
-<div id="outline-container-orgd8c45ce" class="outline-3">
-<h3 id="orgd8c45ce"><span class="section-number-3">2.1</span> Use: Calling Different Functions</h3>
+
+<div id="outline-container-orgfd15222" class="outline-3">
+<h3 id="orgfd15222"><span class="section-number-3">2.1</span> Simple But Useless Example</h3>
 <div class="outline-text-3" id="text-2-1">
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #d33682;">  #include</span><span style="color: #2aa198;">&lt;stdio.h&gt;</span>
+
+<span style="color: #268bd2;">void</span> <span style="color: #b58900;">hello_fun</span>()
+{
+printf(<span style="color: #2aa198;">"Hello!\n"</span>);
+}
+
+<span style="color: #268bd2;">int</span> <span style="color: #b58900;">main</span>()
+{
+
+<span style="color: #268bd2;">void</span> (*<span style="color: #b58900;">ptr</span>)() = &amp;hello_fun;  <span style="color: #586e75; font-style: italic;">//</span><span style="color: #586e75; font-style: italic;">function pointer which points to the address in memory of hello_fun</span>
+ptr(); <span style="color: #586e75; font-style: italic;">// </span><span style="color: #586e75; font-style: italic;">call the function pointed to</span>
+
+}
+</pre>
+</div>
+
+<pre class="example">
+Hello!
+
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgedbb75b" class="outline-3">
+<h3 id="orgedbb75b"><span class="section-number-3">2.2</span> Use: Calling Different Functions</h3>
+<div class="outline-text-3" id="text-2-2">
 <p>
 In the example below we'll use a pointer to a function to allow the user to decide whether to apply the sum, subtract, or divide function to the supplied numbers. 
 </p>
@@ -389,18 +422,18 @@ In the example below we'll use a pointer to a function to allow the user to deci
 </div>
 
 
-<div id="outline-container-org02dcae8" class="outline-2">
-<h2 id="org02dcae8"><span class="section-number-2">3</span> Pointers to Pointers</h2>
+<div id="outline-container-org7799ad4" class="outline-2">
+<h2 id="org7799ad4"><span class="section-number-2">3</span> Pointers to Pointers</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgaf690cc" class="outline-3">
-<h3 id="orgaf690cc"><span class="section-number-3">3.1</span> Use:</h3>
+<div id="outline-container-orgfde7d3b" class="outline-3">
+<h3 id="orgfde7d3b"><span class="section-number-3">3.1</span> Use:</h3>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Matt Brigida, Ph.D.</p>
-<p class="date">Created: 2020-05-10 Sun 20:50</p>
+<p class="date">Created: 2020-05-21 Thu 15:14</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

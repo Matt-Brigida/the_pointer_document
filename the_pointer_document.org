@@ -2,6 +2,7 @@
 #+author: Matt Brigida, Ph.D.
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup
 
+
 * Declaring Pointers
 
 
@@ -47,12 +48,40 @@ It looks like, while different types take up differing amount of memory, the siz
    
 Here we show how to use pointers.
 
-
 ** Use: Call by Reference
 
+#+BEGIN_SRC C :exports both
+#include<stdio.h>
 
+
+
+#+END_SRC
 
 * Function Pointers
+
+A function pointer points to a point in memory which is the start of a series of instructions.  
+
+** Simple But Useless Example
+
+#+BEGIN_SRC C :exports both
+  #include<stdio.h>
+
+void hello_fun()
+{
+printf("Hello!\n");
+}
+
+int main()
+{
+
+void (*ptr)() = &hello_fun;  //function pointer which points to the address in memory of hello_fun
+ptr(); // call the function pointed to
+
+}
+#+END_SRC
+
+#+RESULTS:
+: Hello!
 
 ** Use: Calling Different Functions
 
