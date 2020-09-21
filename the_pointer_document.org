@@ -59,7 +59,7 @@ Here we show how to use pointers.
 
 * Function Pointers
 
-A function pointer points to a point in memory which is the start of a series of instructions.  
+A function pointer points to a point in memory which is the start of a series of instructions.  They can be used to mimic first-class function in C.
 
 ** Simple But Useless Example
 
