@@ -3,7 +3,7 @@
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup
 
 
-* Declaring Pointers
+* Basic Pointers
 
 
 ** Size in Memory
@@ -50,8 +50,15 @@ Here we show how to use pointers.
 
 ** Use: Call by Reference
 
+=C= makes copies of variables that are used in a function.  So if our program
+changes the value of a variable it is really only changing the value of the
+**copy** of the variable.  If we want to actually change the value of a
+variable we have to pass a pointer to the variable's address in memory.
+
 #+BEGIN_SRC C :exports both
 #include<stdio.h>
+int x = 3;
+int y =7;
 
 
 
