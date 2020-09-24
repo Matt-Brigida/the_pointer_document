@@ -57,27 +57,30 @@ variable we have to pass a pointer to the variable's address in memory.
 
 #+BEGIN_SRC C :exports both
 #include<stdio.h>
-int x = 3;
-int y = 7;
 
 void swap_int(int *a, int *b){
 
-int tmp = &a;
-&a = &b;
-&b = tmp;
-
+int tmp = *a;
+*a = *b;
+*b = tmp;
 
 }
 
-int main(int x, int y){
+int main(){
 
-swap_int(&a, &b);
-printf("")
+int x = 3;
+int y = 7;
+
+swap_int(&x, &y);
+printf("x is %d, and y is %d\n", x, y);
 
 }
 
 
 #+END_SRC
+
+#+RESULTS:
+| x is 7 | and y is 3 |
 
 * Function Pointers
 

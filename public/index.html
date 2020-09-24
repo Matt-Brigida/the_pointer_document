@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-05-21 Thu 15:14 -->
+<!-- 2020-09-24 Thu 12:14 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Pointer Document</title>
@@ -240,63 +240,64 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org3fc8b43">1. Declaring Pointers</a>
+<li><a href="#org972c0e0">1. Basic Pointers</a>
 <ul>
-<li><a href="#orgf8b93f5">1.1. Size in Memory</a></li>
-<li><a href="#org5f56d58">1.2. Basic Use</a></li>
-<li><a href="#orgfe0160d">1.3. Use: Call by Reference</a></li>
+<li><a href="#org9c26928">1.1. Size in Memory</a></li>
+<li><a href="#orgde6ebae">1.2. Basic Use</a></li>
+<li><a href="#org41bf26d">1.3. Use: Call by Reference</a></li>
 </ul>
 </li>
-<li><a href="#org9d071d9">2. Function Pointers</a>
+<li><a href="#orgdc8b307">2. Function Pointers</a>
 <ul>
-<li><a href="#orgfd15222">2.1. Simple But Useless Example</a></li>
-<li><a href="#orgedbb75b">2.2. Use: Calling Different Functions</a></li>
+<li><a href="#orgc20e9cf">2.1. Simple But Useless Example</a></li>
+<li><a href="#org3ac38fe">2.2. Use: Calling Different Functions</a></li>
 </ul>
 </li>
-<li><a href="#org7799ad4">3. Pointers to Pointers</a>
+<li><a href="#org5e609a0">3. Pointers to Pointers</a>
 <ul>
-<li><a href="#orgfde7d3b">3.1. Use:</a></li>
+<li><a href="#org4ea3802">3.1. Use:</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org3fc8b43" class="outline-2">
-<h2 id="org3fc8b43"><span class="section-number-2">1</span> Declaring Pointers</h2>
+
+<div id="outline-container-org972c0e0" class="outline-2">
+<h2 id="org972c0e0"><span class="section-number-2">1</span> Basic Pointers</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgf8b93f5" class="outline-3">
-<h3 id="orgf8b93f5"><span class="section-number-3">1.1</span> Size in Memory</h3>
+<div id="outline-container-org9c26928" class="outline-3">
+<h3 id="org9c26928"><span class="section-number-3">1.1</span> Size in Memory</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Here we'll declare pointers of different types and check their size in memory.  The results are form running on a 64 bit machine.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-C"><span style="color: #d33682;">#include</span><span style="color: #2aa198;">&lt;stdio.h&gt;</span>
-<span style="color: #586e75; font-style: italic;">//</span><span style="color: #586e75; font-style: italic;">declare variables of different types</span>
-<span style="color: #268bd2;">int</span> <span style="color: #6c71c4;">i</span> = 1;
-<span style="color: #268bd2;">char</span> <span style="color: #6c71c4;">c</span> = <span style="color: #2aa198;">"c"</span>;
-<span style="color: #268bd2;">double</span> <span style="color: #6c71c4;">d</span> = 3.14;
-<span style="color: #268bd2;">float</span> <span style="color: #6c71c4;">f</span> = 1.61;
-<span style="color: #268bd2;">unsigned</span> <span style="color: #268bd2;">int</span> <span style="color: #6c71c4;">ui</span> = 400;
-<span style="color: #268bd2;">long</span> <span style="color: #268bd2;">int</span> <span style="color: #6c71c4;">li</span> = 4000;
-<span style="color: #268bd2;">unsigned</span> <span style="color: #268bd2;">char</span> <span style="color: #6c71c4;">uc</span> = <span style="color: #2aa198;">"u"</span>;
+<pre class="src src-C"><span style="color: #bc6ec5;">#include</span><span style="color: #2d9574;">&lt;stdio.h&gt;</span>
+<span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">declare variables of different types</span>
+<span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">i</span> = 1;
+<span style="color: #ce537a; font-weight: bold;">char</span> <span style="color: #7590db;">c</span> = <span style="color: #2d9574;">"c"</span>;
+<span style="color: #ce537a; font-weight: bold;">double</span> <span style="color: #7590db;">d</span> = 3.14;
+<span style="color: #ce537a; font-weight: bold;">float</span> <span style="color: #7590db;">f</span> = 1.61;
+<span style="color: #ce537a; font-weight: bold;">unsigned</span> <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">ui</span> = 400;
+<span style="color: #ce537a; font-weight: bold;">long</span> <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">li</span> = 4000;
+<span style="color: #ce537a; font-weight: bold;">unsigned</span> <span style="color: #ce537a; font-weight: bold;">char</span> <span style="color: #7590db;">uc</span> = <span style="color: #2d9574;">"u"</span>;
 
-<span style="color: #586e75; font-style: italic;">//</span><span style="color: #586e75; font-style: italic;">create pointers to variables</span>
-<span style="color: #268bd2;">int</span> *<span style="color: #6c71c4;">pi</span> = &amp;i;
-<span style="color: #268bd2;">char</span> *<span style="color: #6c71c4;">pc</span> = &amp;c;
-<span style="color: #586e75; font-style: italic;">//</span><span style="color: #586e75; font-style: italic;">can also put the * on the type</span>
-<span style="color: #268bd2;">double</span>* <span style="color: #6c71c4;">pd</span> = &amp;d;
-<span style="color: #268bd2;">float</span>* <span style="color: #6c71c4;">pf</span> = &amp;f;
-<span style="color: #268bd2;">unsigned</span> <span style="color: #268bd2;">int</span> *<span style="color: #6c71c4;">pui</span> = &amp;ui;
-<span style="color: #268bd2;">long</span> <span style="color: #268bd2;">int</span> *<span style="color: #6c71c4;">pli</span> = &amp;li;
-<span style="color: #268bd2;">unsigned</span> <span style="color: #268bd2;">char</span> *<span style="color: #6c71c4;">puc</span> = &amp;uc;
+<span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">create pointers to variables</span>
+<span style="color: #ce537a; font-weight: bold;">int</span> *<span style="color: #7590db;">pi</span> = &amp;i;
+<span style="color: #ce537a; font-weight: bold;">char</span> *<span style="color: #7590db;">pc</span> = &amp;c;
+<span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">can also put the * on the type</span>
+<span style="color: #ce537a; font-weight: bold;">double</span>* <span style="color: #7590db;">pd</span> = &amp;d;
+<span style="color: #ce537a; font-weight: bold;">float</span>* <span style="color: #7590db;">pf</span> = &amp;f;
+<span style="color: #ce537a; font-weight: bold;">unsigned</span> <span style="color: #ce537a; font-weight: bold;">int</span> *<span style="color: #7590db;">pui</span> = &amp;ui;
+<span style="color: #ce537a; font-weight: bold;">long</span> <span style="color: #ce537a; font-weight: bold;">int</span> *<span style="color: #7590db;">pli</span> = &amp;li;
+<span style="color: #ce537a; font-weight: bold;">unsigned</span> <span style="color: #ce537a; font-weight: bold;">char</span> *<span style="color: #7590db;">puc</span> = &amp;uc;
 
-printf(<span style="color: #2aa198;">"The size of an int %zu bytes, size of pointer to int %zu bytes \n"</span>, <span style="color: #859900;">sizeof</span> i, <span style="color: #859900;">sizeof</span> pi);
-printf(<span style="color: #2aa198;">"The size of an char %zu bytes, size of pointer to char %zu bytes \n"</span>, <span style="color: #859900;">sizeof</span> c, <span style="color: #859900;">sizeof</span> pc);
-printf(<span style="color: #2aa198;">"The size of an double %zu bytes, size of pointer to double %zu bytes \n"</span>, <span style="color: #859900;">sizeof</span> d, <span style="color: #859900;">sizeof</span> pd);
+printf(<span style="color: #2d9574;">"The size of an int %zu bytes, size of pointer to int %zu bytes \n"</span>, <span style="color: #4f97d7; font-weight: bold;">sizeof</span> i, <span style="color: #4f97d7; font-weight: bold;">sizeof</span> pi);
+printf(<span style="color: #2d9574;">"The size of an char %zu bytes, size of pointer to char %zu bytes \n"</span>, <span style="color: #4f97d7; font-weight: bold;">sizeof</span> c, <span style="color: #4f97d7; font-weight: bold;">sizeof</span> pc);
+printf(<span style="color: #2d9574;">"The size of an double %zu bytes, size of pointer to double %zu bytes \n"</span>, <span style="color: #4f97d7; font-weight: bold;">sizeof</span> d, <span style="color: #4f97d7; font-weight: bold;">sizeof</span> pd);
 
 </pre>
 </div>
@@ -333,8 +334,8 @@ It looks like, while different types take up differing amount of memory, the siz
 </div>
 </div>
 
-<div id="outline-container-org5f56d58" class="outline-3">
-<h3 id="org5f56d58"><span class="section-number-3">1.2</span> Basic Use</h3>
+<div id="outline-container-orgde6ebae" class="outline-3">
+<h3 id="orgde6ebae"><span class="section-number-3">1.2</span> Basic Use</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 Here we show how to use pointers.
@@ -342,38 +343,84 @@ Here we show how to use pointers.
 </div>
 </div>
 
+<div id="outline-container-org41bf26d" class="outline-3">
+<h3 id="org41bf26d"><span class="section-number-3">1.3</span> Use: Call by Reference</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+<code>C</code> makes copies of variables that are used in a function.  So if our program
+changes the value of a variable it is really only changing the value of the
+<b><b>copy</b></b> of the variable.  If we want to actually change the value of a
+variable we have to pass a pointer to the variable's address in memory.
+</p>
 
-<div id="outline-container-orgfe0160d" class="outline-3">
-<h3 id="orgfe0160d"><span class="section-number-3">1.3</span> Use: Call by Reference</h3>
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #bc6ec5;">#include</span><span style="color: #2d9574;">&lt;stdio.h&gt;</span>
+
+<span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">swap_int</span>(<span style="color: #ce537a; font-weight: bold;">int</span> *<span style="color: #7590db;">a</span>, <span style="color: #ce537a; font-weight: bold;">int</span> *<span style="color: #7590db;">b</span>){
+
+<span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">tmp</span> = *a;
+*a = *b;
+*b = tmp;
+
+}
+
+<span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #bc6ec5; font-weight: bold;">main</span>(){
+
+<span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">x</span> = 3;
+<span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">y</span> = 7;
+
+swap_int(&amp;x, &amp;y);
+printf(<span style="color: #2d9574;">"x is %d, and y is %d\n"</span>, x, y);
+
+}
+
+
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">x is 7</td>
+<td class="org-left">and y is 3</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
+</div>
 
-
-
-<div id="outline-container-org9d071d9" class="outline-2">
-<h2 id="org9d071d9"><span class="section-number-2">2</span> Function Pointers</h2>
+<div id="outline-container-orgdc8b307" class="outline-2">
+<h2 id="orgdc8b307"><span class="section-number-2">2</span> Function Pointers</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-A function pointer points to a point in memory which is the start of a series of instructions.  
+A function pointer points to a point in memory which is the start of a series of instructions.  They can be used to mimic first-class function in C.
 </p>
 </div>
 
-<div id="outline-container-orgfd15222" class="outline-3">
-<h3 id="orgfd15222"><span class="section-number-3">2.1</span> Simple But Useless Example</h3>
+<div id="outline-container-orgc20e9cf" class="outline-3">
+<h3 id="orgc20e9cf"><span class="section-number-3">2.1</span> Simple But Useless Example</h3>
 <div class="outline-text-3" id="text-2-1">
 <div class="org-src-container">
-<pre class="src src-C"><span style="color: #d33682;">  #include</span><span style="color: #2aa198;">&lt;stdio.h&gt;</span>
+<pre class="src src-C"><span style="color: #bc6ec5;">  #include</span><span style="color: #2d9574;">&lt;stdio.h&gt;</span>
 
-<span style="color: #268bd2;">void</span> <span style="color: #b58900;">hello_fun</span>()
+<span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">hello_fun</span>()
 {
-printf(<span style="color: #2aa198;">"Hello!\n"</span>);
+printf(<span style="color: #2d9574;">"Hello!\n"</span>);
 }
 
-<span style="color: #268bd2;">int</span> <span style="color: #b58900;">main</span>()
+<span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #bc6ec5; font-weight: bold;">main</span>()
 {
 
-<span style="color: #268bd2;">void</span> (*<span style="color: #b58900;">ptr</span>)() = &amp;hello_fun;  <span style="color: #586e75; font-style: italic;">//</span><span style="color: #586e75; font-style: italic;">function pointer which points to the address in memory of hello_fun</span>
-ptr(); <span style="color: #586e75; font-style: italic;">// </span><span style="color: #586e75; font-style: italic;">call the function pointed to</span>
+<span style="color: #ce537a; font-weight: bold;">void</span> (*<span style="color: #bc6ec5; font-weight: bold;">ptr</span>)() = &amp;hello_fun;  <span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">function pointer which points to the address in memory of hello_fun</span>
+ptr(); <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">call the function pointed to</span>
 
 }
 </pre>
@@ -386,31 +433,31 @@ Hello!
 </div>
 </div>
 
-<div id="outline-container-orgedbb75b" class="outline-3">
-<h3 id="orgedbb75b"><span class="section-number-3">2.2</span> Use: Calling Different Functions</h3>
+<div id="outline-container-org3ac38fe" class="outline-3">
+<h3 id="org3ac38fe"><span class="section-number-3">2.2</span> Use: Calling Different Functions</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 In the example below we'll use a pointer to a function to allow the user to decide whether to apply the sum, subtract, or divide function to the supplied numbers. 
 </p>
 
 <div class="org-src-container">
-<pre class="src src-C"><span style="color: #d33682;">#include</span><span style="color: #2aa198;">&lt;stdio.h&gt;</span>
+<pre class="src src-C"><span style="color: #bc6ec5;">#include</span><span style="color: #2d9574;">&lt;stdio.h&gt;</span>
 
-<span style="color: #586e75; font-style: italic;">//</span><span style="color: #586e75; font-style: italic;">Instead of user input define global variables</span>
-<span style="color: #d33682;">#define</span> <span style="color: #6c71c4;">FUN</span> = 2
-<span style="color: #d33682;">#define</span> <span style="color: #6c71c4;">NUM1</span> = 7
-<span style="color: #d33682;">#define</span> <span style="color: #6c71c4;">NUM2</span> = 4
+<span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">Instead of user input define global variables</span>
+<span style="color: #bc6ec5;">#define</span> <span style="color: #7590db;">FUN</span> = 2
+<span style="color: #bc6ec5;">#define</span> <span style="color: #7590db;">NUM1</span> = 7
+<span style="color: #bc6ec5;">#define</span> <span style="color: #7590db;">NUM2</span> = 4
 
-<span style="color: #586e75; font-style: italic;">//</span><span style="color: #586e75; font-style: italic;">define different functions</span>
-<span style="color: #268bd2;">int</span> <span style="color: #b58900;">sum</span>(<span style="color: #268bd2;">int</span> <span style="color: #6c71c4;">a</span>, <span style="color: #268bd2;">int</span> <span style="color: #6c71c4;">b</span>){<span style="color: #859900;">return</span> a + b;}
-<span style="color: #268bd2;">int</span> <span style="color: #b58900;">subtract</span>(<span style="color: #268bd2;">int</span> <span style="color: #6c71c4;">a</span>, <span style="color: #268bd2;">int</span> <span style="color: #6c71c4;">b</span>){<span style="color: #859900;">return</span> a - b;}
-<span style="color: #268bd2;">int</span> <span style="color: #b58900;">divide</span>(<span style="color: #268bd2;">int</span> <span style="color: #6c71c4;">a</span>, <span style="color: #268bd2;">int</span> <span style="color: #6c71c4;">b</span>){<span style="color: #859900;">return</span> ((<span style="color: #268bd2;">double</span>) a) / ((<span style="color: #268bd2;">double</span>) b);}
+<span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">define different functions</span>
+<span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #bc6ec5; font-weight: bold;">sum</span>(<span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">a</span>, <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">b</span>){<span style="color: #4f97d7; font-weight: bold;">return</span> a + b;}
+<span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #bc6ec5; font-weight: bold;">subtract</span>(<span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">a</span>, <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">b</span>){<span style="color: #4f97d7; font-weight: bold;">return</span> a - b;}
+<span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #bc6ec5; font-weight: bold;">divide</span>(<span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">a</span>, <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">b</span>){<span style="color: #4f97d7; font-weight: bold;">return</span> ((<span style="color: #ce537a; font-weight: bold;">double</span>) a) / ((<span style="color: #ce537a; font-weight: bold;">double</span>) b);}
 
-<span style="color: #586e75; font-style: italic;">//</span><span style="color: #586e75; font-style: italic;">pointer to function</span>
-<span style="color: #268bd2;">int</span> (<span style="color: #268bd2;">funptr</span>*)();
+<span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">pointer to function</span>
+<span style="color: #ce537a; font-weight: bold;">int</span> (<span style="color: #ce537a; font-weight: bold;">funptr</span>*)();
 
-<span style="color: #268bd2;">int</span>
-<span style="color: #b58900;">main</span>(){
+<span style="color: #ce537a; font-weight: bold;">int</span>
+<span style="color: #bc6ec5; font-weight: bold;">main</span>(){
 
 
 
@@ -422,18 +469,18 @@ In the example below we'll use a pointer to a function to allow the user to deci
 </div>
 
 
-<div id="outline-container-org7799ad4" class="outline-2">
-<h2 id="org7799ad4"><span class="section-number-2">3</span> Pointers to Pointers</h2>
+<div id="outline-container-org5e609a0" class="outline-2">
+<h2 id="org5e609a0"><span class="section-number-2">3</span> Pointers to Pointers</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgfde7d3b" class="outline-3">
-<h3 id="orgfde7d3b"><span class="section-number-3">3.1</span> Use:</h3>
+<div id="outline-container-org4ea3802" class="outline-3">
+<h3 id="org4ea3802"><span class="section-number-3">3.1</span> Use:</h3>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Matt Brigida, Ph.D.</p>
-<p class="date">Created: 2020-05-21 Thu 15:14</p>
+<p class="date">Created: 2020-09-24 Thu 12:14</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
