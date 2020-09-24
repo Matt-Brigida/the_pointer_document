@@ -58,8 +58,23 @@ variable we have to pass a pointer to the variable's address in memory.
 #+BEGIN_SRC C :exports both
 #include<stdio.h>
 int x = 3;
-int y =7;
+int y = 7;
 
+void swap_int(int *a, int *b){
+
+int tmp = &a;
+&a = &b;
+&b = tmp;
+
+
+}
+
+int main(int x, int y){
+
+swap_int(&a, &b);
+printf("")
+
+}
 
 
 #+END_SRC
