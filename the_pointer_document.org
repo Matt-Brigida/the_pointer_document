@@ -1,6 +1,6 @@
 #+title: The Pointer Document
 #+author: Matt Brigida, Ph.D.
-#+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
 
 * Basic Pointers
@@ -119,25 +119,54 @@ In the example below we'll use a pointer to a function to allow the user to deci
 #include<stdio.h>
 
 //Instead of user input define global variables
-#define FUN = 2
-#define NUM1 = 7
-#define NUM2 = 4
+/* #define FUN = 2 */
+/* #define NUM1 = 7 */
+/* #define NUM2 = 4 */
 
 //define different functions
-int sum(int a, int b){return a + b;}
-int subtract(int a, int b){return a - b;}
-int divide(int a, int b){return ((double) a) / ((double) b);}
+double sum(double a, double b){return a + b;}
+double subtract(double a, double b){return a - b;}
+double divide(double a, double b){return ((double) a) / ((double) b);}
+double multiply(double a, double b){return ((double) a) * ((double) b);}
 
-//pointer to function
-int (funptr*)();
+//podoubleer to function
+//int (funptr*)();
+double general_function(int Select, double a, double b)
+{
+    /*  Declare a type to point to a function with parameters (int a, int b)
+        and returning an int.
+    ,*/
+    typedef double (*fnptr)(double a, double b);
+
+    // Dispatch Table
+    fnptr Table[] =
+        {
+            sum,
+            subtract,
+            multiply,
+            divide,
+        };
+
+    //  Dispatch to the requested function.
+    return Table[Select](a, b);
+};
 
 int
 main(){
 
-
-
+printf("9 + 3 = %f.\n", general_function(0, 9, 3));
+printf("9 - 3 = %f.\n", general_function(1, 9, 3));
+printf("9 * 3 = %f.\n", general_function(2, 9, 3));
+printf("9 / 3 = %f.\n", general_function(3, 9, 3));
+ 
 }
 #+END_SRC
+
+#+RESULTS:
+| 9 | + | 3 | = | 12.000000. |
+| 9 | - | 3 | = |  6.000000. |
+| 9 | * | 3 | = | 27.000000. |
+| 9 | / | 3 | = |  3.000000. |
 
 
 * Pointers to Pointers
