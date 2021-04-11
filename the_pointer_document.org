@@ -8,7 +8,7 @@
 
 ** Size in Memory
 
-Here we'll declare pointers of different types and check their size in memory.  The results are form running on a 64 bit machine.
+Here we'll declare pointers of different types and check their size in memory.  The results are from running on a 64 bit machine.
 
 #+BEGIN_SRC C :exports both
 #include<stdio.h>
@@ -55,6 +55,9 @@ changes the value of a variable it is really only changing the value of the
 **copy** of the variable.  If we want to actually change the value of a
 variable we have to pass a pointer to the variable's address in memory.
 
+
+The following program swaps the value of two variables using pointers. 
+
 #+BEGIN_SRC C :exports both
 #include<stdio.h>
 
@@ -84,12 +87,12 @@ printf("x is %d, and y is %d\n", x, y);
 
 * Function Pointers
 
-A function pointer points to a point in memory which is the start of a series of instructions.  They can be used to mimic first-class function in C.
+A function pointer points to a point in memory which is the start of a series of instructions.  They can be used to mimic first-class functions in C.
 
 ** Simple But Useless Example
 
 #+BEGIN_SRC C :exports both
-  #include<stdio.h>
+#include<stdio.h>
 
 void hello_fun()
 {
@@ -113,27 +116,27 @@ ptr(); // call the function pointed to
 In the example below we'll use a pointer to a function to allow the user to decide whether to apply the sum, subtract, or divide function to the supplied numbers. 
 
 #+BEGIN_SRC C :exports both
-  #include<stdio.h>
+#include<stdio.h>
 
-  //Instead of user input define global variables
-  #define FUN = 2
-  #define NUM1 = 7
-  #define NUM2 = 4
+//Instead of user input define global variables
+#define FUN = 2
+#define NUM1 = 7
+#define NUM2 = 4
 
-  //define different functions
-  int sum(int a, int b){return a + b;}
-  int subtract(int a, int b){return a - b;}
-  int divide(int a, int b){return ((double) a) / ((double) b);}
+//define different functions
+int sum(int a, int b){return a + b;}
+int subtract(int a, int b){return a - b;}
+int divide(int a, int b){return ((double) a) / ((double) b);}
 
-  //pointer to function
-  int (funptr*)();
+//pointer to function
+int (funptr*)();
 
-  int
-  main(){
+int
+main(){
 
 
-  
-  }
+
+}
 #+END_SRC
 
 
