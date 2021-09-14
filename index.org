@@ -2,6 +2,14 @@
 #+author: Matt Brigida, Ph.D.
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
+The following code is executed in emacs org mode with the results returned to the text.  Note, each C program is automatically wrapped in a =main= function, and =stdio.h= is included in a header arg for each source block:
+
+#+BEGIN_SRC C :exports both :includes <stdio.h>
+printf("In other words this should not be surprising.\n");
+#+END_SRC
+
+#+RESULTS:
+: In other words this should not be surprising.
 
 * Basic Pointers
 
@@ -10,8 +18,7 @@
 
 Here we'll declare pointers of different types and check their size in memory.  The results are from running on a 64 bit machine.
 
-#+BEGIN_SRC C :exports both
-#include<stdio.h>
+#+BEGIN_SRC C :exports both :includes <stdio.h>
 //declare variables of different types
 int i = 1;
 char c = "c";
@@ -129,7 +136,7 @@ double subtract(double a, double b){return a - b;}
 double divide(double a, double b){return ((double) a) / ((double) b);}
 double multiply(double a, double b){return ((double) a) * ((double) b);}
 
-//podoubleer to function
+//pointer to function
 //int (funptr*)();
 double general_function(int Select, double a, double b)
 {

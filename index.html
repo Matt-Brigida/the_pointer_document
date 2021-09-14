@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-14 Tue 17:05 -->
+<!-- 2021-09-14 Tue 19:36 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Pointer Document</title>
@@ -229,43 +229,53 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org89ccbaf">1. Basic Pointers</a>
+<li><a href="#orgea2ea71">1. Basic Pointers</a>
 <ul>
-<li><a href="#org362199c">1.1. Size in Memory</a></li>
-<li><a href="#org997ef12">1.2. Basic Use</a></li>
-<li><a href="#orgfe3991e">1.3. Use: Call by Reference</a></li>
+<li><a href="#org63fbd96">1.1. Size in Memory</a></li>
+<li><a href="#org8d6079f">1.2. Basic Use</a></li>
+<li><a href="#org46d420b">1.3. Use: Call by Reference</a></li>
 </ul>
 </li>
-<li><a href="#org501df84">2. Function Pointers</a>
+<li><a href="#org8688ca4">2. Function Pointers</a>
 <ul>
-<li><a href="#org2a392c5">2.1. Simple But Useless Example</a></li>
-<li><a href="#orgcc0cdc6">2.2. Use: Calling Different Functions</a></li>
+<li><a href="#org68234ed">2.1. Simple But Useless Example</a></li>
+<li><a href="#orge2e256f">2.2. Use: Calling Different Functions</a></li>
 </ul>
 </li>
-<li><a href="#orgb7ee7e7">3. Pointers to Pointers</a>
+<li><a href="#org0db927d">3. Pointers to Pointers</a>
 <ul>
-<li><a href="#org5b6719e">3.1. Use:</a></li>
+<li><a href="#orgd73c799">3.1. Use:</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
+<p>
+The following code is executed in emacs org mode with the results returned to the text.  Note, each C program is automatically wrapped in a <code>main</code> function, and <code>stdio.h</code> is included in a header arg for each source block:
+</p>
 
+<div class="org-src-container">
+<pre class="src src-C">printf("In other words this should not be surprising.\n");
+</pre>
+</div>
 
-<div id="outline-container-org89ccbaf" class="outline-2">
-<h2 id="org89ccbaf"><span class="section-number-2">1.</span> Basic Pointers</h2>
+<pre class="example">
+In other words this should not be surprising.
+</pre>
+
+<div id="outline-container-orgea2ea71" class="outline-2">
+<h2 id="orgea2ea71"><span class="section-number-2">1.</span> Basic Pointers</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org362199c" class="outline-3">
-<h3 id="org362199c"><span class="section-number-3">1.1.</span> Size in Memory</h3>
+<div id="outline-container-org63fbd96" class="outline-3">
+<h3 id="org63fbd96"><span class="section-number-3">1.1.</span> Size in Memory</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Here we'll declare pointers of different types and check their size in memory.  The results are from running on a 64 bit machine.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-C">#include&lt;stdio.h&gt;
-//declare variables of different types
+<pre class="src src-C">//declare variables of different types
 int i = 1;
 char c = "c";
 double d = 3.14;
@@ -323,8 +333,8 @@ It looks like, while different types take up differing amount of memory, the siz
 </div>
 </div>
 
-<div id="outline-container-org997ef12" class="outline-3">
-<h3 id="org997ef12"><span class="section-number-3">1.2.</span> Basic Use</h3>
+<div id="outline-container-org8d6079f" class="outline-3">
+<h3 id="org8d6079f"><span class="section-number-3">1.2.</span> Basic Use</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 Here we show how to use pointers.
@@ -332,8 +342,8 @@ Here we show how to use pointers.
 </div>
 </div>
 
-<div id="outline-container-orgfe3991e" class="outline-3">
-<h3 id="orgfe3991e"><span class="section-number-3">1.3.</span> Use: Call by Reference</h3>
+<div id="outline-container-org46d420b" class="outline-3">
+<h3 id="org46d420b"><span class="section-number-3">1.3.</span> Use: Call by Reference</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 <code>C</code> makes copies of variables that are used in a function.  So if our program
@@ -391,16 +401,16 @@ printf("x is %d, and y is %d\n", x, y);
 </div>
 </div>
 
-<div id="outline-container-org501df84" class="outline-2">
-<h2 id="org501df84"><span class="section-number-2">2.</span> Function Pointers</h2>
+<div id="outline-container-org8688ca4" class="outline-2">
+<h2 id="org8688ca4"><span class="section-number-2">2.</span> Function Pointers</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 A function pointer points to a point in memory which is the start of a series of instructions.  They can be used to mimic first-class functions in C.
 </p>
 </div>
 
-<div id="outline-container-org2a392c5" class="outline-3">
-<h3 id="org2a392c5"><span class="section-number-3">2.1.</span> Simple But Useless Example</h3>
+<div id="outline-container-org68234ed" class="outline-3">
+<h3 id="org68234ed"><span class="section-number-3">2.1.</span> Simple But Useless Example</h3>
 <div class="outline-text-3" id="text-2-1">
 <div class="org-src-container">
 <pre class="src src-C">#include&lt;stdio.h&gt;
@@ -426,8 +436,8 @@ Hello!
 </div>
 </div>
 
-<div id="outline-container-orgcc0cdc6" class="outline-3">
-<h3 id="orgcc0cdc6"><span class="section-number-3">2.2.</span> Use: Calling Different Functions</h3>
+<div id="outline-container-orge2e256f" class="outline-3">
+<h3 id="orge2e256f"><span class="section-number-3">2.2.</span> Use: Calling Different Functions</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 In the example below we'll use a pointer to a function to allow the user to decide whether to apply the sum, subtract, or divide function to the supplied numbers. 
@@ -447,7 +457,7 @@ double subtract(double a, double b){return a - b;}
 double divide(double a, double b){return ((double) a) / ((double) b);}
 double multiply(double a, double b){return ((double) a) * ((double) b);}
 
-//podoubleer to function
+//pointer to function
 //int (funptr*)();
 double general_function(int Select, double a, double b)
 {
@@ -534,18 +544,18 @@ printf("9 / 3 = %f.\n", general_function(3, 9, 3));
 </div>
 
 
-<div id="outline-container-orgb7ee7e7" class="outline-2">
-<h2 id="orgb7ee7e7"><span class="section-number-2">3.</span> Pointers to Pointers</h2>
+<div id="outline-container-org0db927d" class="outline-2">
+<h2 id="org0db927d"><span class="section-number-2">3.</span> Pointers to Pointers</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org5b6719e" class="outline-3">
-<h3 id="org5b6719e"><span class="section-number-3">3.1.</span> Use:</h3>
+<div id="outline-container-orgd73c799" class="outline-3">
+<h3 id="orgd73c799"><span class="section-number-3">3.1.</span> Use:</h3>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Matt Brigida, Ph.D.</p>
-<p class="date">Created: 2021-09-14 Tue 17:05</p>
+<p class="date">Created: 2021-09-14 Tue 19:36</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
