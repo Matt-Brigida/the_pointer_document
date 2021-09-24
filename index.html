@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-15 Wed 12:22 -->
+<!-- 2021-09-24 Fri 14:48 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Pointer Document</title>
@@ -229,22 +229,22 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgc888fdd">1. Basic Pointers</a>
+<li><a href="#orgd35e9c2">1. Basic Pointers</a>
 <ul>
-<li><a href="#org44a5ac1">1.1. Size in Memory</a></li>
-<li><a href="#org2016846">1.2. Basic Use</a></li>
-<li><a href="#orgef93d32">1.3. Use: Call by Reference</a></li>
+<li><a href="#org86d3dd3">1.1. Size in Memory</a></li>
+<li><a href="#orgdc00a6d">1.2. Basic Use</a></li>
+<li><a href="#org8b7ff43">1.3. Use: Call by Reference</a></li>
 </ul>
 </li>
-<li><a href="#org23eb1c4">2. Function Pointers</a>
+<li><a href="#org5e17ce9">2. Function Pointers</a>
 <ul>
-<li><a href="#orge2b0dba">2.1. Simple But Useless Example</a></li>
-<li><a href="#orgff2a3b7">2.2. Use: Calling Different Functions</a></li>
+<li><a href="#org0ad0532">2.1. Simple But Useless Example</a></li>
+<li><a href="#org931457d">2.2. Use: Calling Different Functions</a></li>
 </ul>
 </li>
-<li><a href="#org9f36a00">3. Pointers to Pointers</a>
+<li><a href="#orgce9c993">3. Pointers to Pointers</a>
 <ul>
-<li><a href="#org0b9f704">3.1. Use, Arrays:</a></li>
+<li><a href="#org6ddf793">3.1. Use, Arrays:</a></li>
 </ul>
 </li>
 </ul>
@@ -263,12 +263,12 @@ The following code is executed in emacs org mode with the results returned to th
 In other words this should not be surprising.
 </pre>
 
-<div id="outline-container-orgc888fdd" class="outline-2">
-<h2 id="orgc888fdd"><span class="section-number-2">1.</span> Basic Pointers</h2>
+<div id="outline-container-orgd35e9c2" class="outline-2">
+<h2 id="orgd35e9c2"><span class="section-number-2">1.</span> Basic Pointers</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org44a5ac1" class="outline-3">
-<h3 id="org44a5ac1"><span class="section-number-3">1.1.</span> Size in Memory</h3>
+<div id="outline-container-org86d3dd3" class="outline-3">
+<h3 id="org86d3dd3"><span class="section-number-3">1.1.</span> Size in Memory</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Here we'll declare pointers of different types and check their size in memory.  The results are from running on a 64 bit machine.
@@ -333,8 +333,8 @@ It looks like, while different types take up differing amount of memory, the siz
 </div>
 </div>
 
-<div id="outline-container-org2016846" class="outline-3">
-<h3 id="org2016846"><span class="section-number-3">1.2.</span> Basic Use</h3>
+<div id="outline-container-orgdc00a6d" class="outline-3">
+<h3 id="orgdc00a6d"><span class="section-number-3">1.2.</span> Basic Use</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 Here we show how to use pointers.
@@ -342,8 +342,8 @@ Here we show how to use pointers.
 </div>
 </div>
 
-<div id="outline-container-orgef93d32" class="outline-3">
-<h3 id="orgef93d32"><span class="section-number-3">1.3.</span> Use: Call by Reference</h3>
+<div id="outline-container-org8b7ff43" class="outline-3">
+<h3 id="org8b7ff43"><span class="section-number-3">1.3.</span> Use: Call by Reference</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 <code>C</code> makes copies of variables that are used in a function.  So if our program
@@ -377,8 +377,6 @@ swap_int(&amp;x, &amp;y);
 printf("x is %d, and y is %d\n", x, y);
 
 }
-
-
 </pre>
 </div>
 
@@ -401,16 +399,16 @@ printf("x is %d, and y is %d\n", x, y);
 </div>
 </div>
 
-<div id="outline-container-org23eb1c4" class="outline-2">
-<h2 id="org23eb1c4"><span class="section-number-2">2.</span> Function Pointers</h2>
+<div id="outline-container-org5e17ce9" class="outline-2">
+<h2 id="org5e17ce9"><span class="section-number-2">2.</span> Function Pointers</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 A function pointer points to a point in memory which is the start of a series of instructions.  They can be used to mimic first-class functions in C.
 </p>
 </div>
 
-<div id="outline-container-orge2b0dba" class="outline-3">
-<h3 id="orge2b0dba"><span class="section-number-3">2.1.</span> Simple But Useless Example</h3>
+<div id="outline-container-org0ad0532" class="outline-3">
+<h3 id="org0ad0532"><span class="section-number-3">2.1.</span> Simple But Useless Example</h3>
 <div class="outline-text-3" id="text-2-1">
 <div class="org-src-container">
 <pre class="src src-C">#include&lt;stdio.h&gt;
@@ -436,8 +434,8 @@ Hello!
 </div>
 </div>
 
-<div id="outline-container-orgff2a3b7" class="outline-3">
-<h3 id="orgff2a3b7"><span class="section-number-3">2.2.</span> Use: Calling Different Functions</h3>
+<div id="outline-container-org931457d" class="outline-3">
+<h3 id="org931457d"><span class="section-number-3">2.2.</span> Use: Calling Different Functions</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 In the example below we'll use a pointer to a function to allow the user to decide whether to apply the sum, subtract, or divide function to the supplied numbers. 
@@ -544,31 +542,129 @@ printf("9 / 3 = %f.\n", general_function(3, 9, 3));
 </div>
 
 
-<div id="outline-container-org9f36a00" class="outline-2">
-<h2 id="org9f36a00"><span class="section-number-2">3.</span> Pointers to Pointers</h2>
+<div id="outline-container-orgce9c993" class="outline-2">
+<h2 id="orgce9c993"><span class="section-number-2">3.</span> Pointers to Pointers</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org0b9f704" class="outline-3">
-<h3 id="org0b9f704"><span class="section-number-3">3.1.</span> Use, Arrays:</h3>
+<div id="outline-container-org6ddf793" class="outline-3">
+<h3 id="org6ddf793"><span class="section-number-3">3.1.</span> Use, Arrays:</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
-We can declare a 2-dimensional array with:
+We can declare a 2-dimensional array of characters with:
 </p>
 
 <p>
-<code>int a[5][10];</code>
+<code>char a[5][10];</code>
 </p>
 
 <p>
-This is an array with 5 rows with 10 integers each (i.e. 10 columns).  However what if we want to allow each row to have a different number of integers?
+This is an character array with 5 rows with 10 chars each (i.e. 10 columns).  However what if we want to allow each row to have a different number of chars?  The reason is we don't want to store 10 chars for each word, only the number of characters in each word.
 </p>
+
+<div class="org-src-container">
+<pre class="src src-C">#include&lt;stdio.h&gt;
+#include"string.h"
+
+char *hobbits_p[] = {"Frodo", "Pippin", "Samwise"};
+
+char hobbits_a[][10] = {"Frodo", "Pippin", "Samwise"};
+
+//Look at string length------
+
+printf("Array of pointers. \n");
+for (int i=0; i&lt;3; i++)
+  {
+    printf("String length is: %d \n", strlen(hobbits_p[i]));
+  }
+
+printf("Two dimensional array. \n");
+for (int i=0; i&lt;3; i++)
+  {
+    printf("String length is: %d \n", strlen(hobbits_a[i]));
+  }
+
+//Look at size in memory------
+
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Array</td>
+<td class="org-left">of</td>
+<td class="org-left">pointers.</td>
+<td class="org-right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">String</td>
+<td class="org-left">length</td>
+<td class="org-left">is:</td>
+<td class="org-right">5</td>
+</tr>
+
+<tr>
+<td class="org-left">String</td>
+<td class="org-left">length</td>
+<td class="org-left">is:</td>
+<td class="org-right">6</td>
+</tr>
+
+<tr>
+<td class="org-left">String</td>
+<td class="org-left">length</td>
+<td class="org-left">is:</td>
+<td class="org-right">7</td>
+</tr>
+
+<tr>
+<td class="org-left">Two</td>
+<td class="org-left">dimensional</td>
+<td class="org-left">array.</td>
+<td class="org-right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">String</td>
+<td class="org-left">length</td>
+<td class="org-left">is:</td>
+<td class="org-right">5</td>
+</tr>
+
+<tr>
+<td class="org-left">String</td>
+<td class="org-left">length</td>
+<td class="org-left">is:</td>
+<td class="org-right">6</td>
+</tr>
+
+<tr>
+<td class="org-left">String</td>
+<td class="org-left">length</td>
+<td class="org-left">is:</td>
+<td class="org-right">7</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Matt Brigida, Ph.D.</p>
-<p class="date">Created: 2021-09-15 Wed 12:22</p>
+<p class="date">Created: 2021-09-24 Fri 14:48</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
