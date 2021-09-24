@@ -195,13 +195,14 @@ char hobbits_a[][10] = {"Frodo", "Pippin", "Samwise"};
 
 //Look at string length------
 
-printf("Array of pointers. \n");
+printf("Array of pointers strlen. \n");
 for (int i=0; i<3; i++)
   {
-    printf("String length is: %d \n", strlen(hobbits_p[i]));
+    printf("String length is: %d \n", strlen(*(hobbits_p + i)));
+    printf("Word is: %s \n", *(hobbits_p+i));
   }
 
-printf("Two dimensional array. \n");
+printf("Two dimensional array strlen. \n");
 for (int i=0; i<3; i++)
   {
     printf("String length is: %d \n", strlen(hobbits_a[i]));
@@ -209,17 +210,40 @@ for (int i=0; i<3; i++)
 
 //Look at size in memory------
 
+printf("Array of pointers sizeof. \n");
+for (int i=0; i<3; i++)
+  {
+    printf("String length is: %d \n", sizeof *(hobbits_p + i) );
+  }
+
+printf("Two dimensional array sizeof. \n");
+for (int i=0; i<3; i++)
+  {
+    printf("String length is: %d \n", sizeof hobbits_a[i] );
+  }
+
 #+end_src
 
 #+RESULTS:
-| Array  | of          | pointers. |   |
-| String | length      | is:       | 5 |
-| String | length      | is:       | 6 |
-| String | length      | is:       | 7 |
-| Two    | dimensional | array.    |   |
-| String | length      | is:       | 5 |
-| String | length      | is:       | 6 |
-| String | length      | is:       | 7 |
+| Array  | of          | pointers | strlen. |
+| String | length      | is:      |       5 |
+| Word   | is:         | Frodo    |         |
+| String | length      | is:      |       6 |
+| Word   | is:         | Pippin   |         |
+| String | length      | is:      |       7 |
+| Word   | is:         | Samwise  |         |
+| Two    | dimensional | array    | strlen. |
+| String | length      | is:      |       5 |
+| String | length      | is:      |       6 |
+| String | length      | is:      |       7 |
+| Array  | of          | pointers | sizeof. |
+| String | length      | is:      |       8 |
+| String | length      | is:      |       8 |
+| String | length      | is:      |       8 |
+| Two    | dimensional | array    | sizeof. |
+| String | length      | is:      |      10 |
+| String | length      | is:      |      10 |
+| String | length      | is:      |      10 |
 
 
 

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-24 Fri 14:48 -->
+<!-- 2021-09-24 Fri 14:59 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Pointer Document</title>
@@ -229,22 +229,22 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgd35e9c2">1. Basic Pointers</a>
+<li><a href="#org47d647b">1. Basic Pointers</a>
 <ul>
-<li><a href="#org86d3dd3">1.1. Size in Memory</a></li>
-<li><a href="#orgdc00a6d">1.2. Basic Use</a></li>
-<li><a href="#org8b7ff43">1.3. Use: Call by Reference</a></li>
+<li><a href="#org562e981">1.1. Size in Memory</a></li>
+<li><a href="#orgf72fb9b">1.2. Basic Use</a></li>
+<li><a href="#org887893c">1.3. Use: Call by Reference</a></li>
 </ul>
 </li>
-<li><a href="#org5e17ce9">2. Function Pointers</a>
+<li><a href="#orgf69fb95">2. Function Pointers</a>
 <ul>
-<li><a href="#org0ad0532">2.1. Simple But Useless Example</a></li>
-<li><a href="#org931457d">2.2. Use: Calling Different Functions</a></li>
+<li><a href="#orgcec29b2">2.1. Simple But Useless Example</a></li>
+<li><a href="#org161d2a6">2.2. Use: Calling Different Functions</a></li>
 </ul>
 </li>
-<li><a href="#orgce9c993">3. Pointers to Pointers</a>
+<li><a href="#orgb8d5154">3. Pointers to Pointers</a>
 <ul>
-<li><a href="#org6ddf793">3.1. Use, Arrays:</a></li>
+<li><a href="#org12a85f5">3.1. Use, Arrays:</a></li>
 </ul>
 </li>
 </ul>
@@ -263,12 +263,12 @@ The following code is executed in emacs org mode with the results returned to th
 In other words this should not be surprising.
 </pre>
 
-<div id="outline-container-orgd35e9c2" class="outline-2">
-<h2 id="orgd35e9c2"><span class="section-number-2">1.</span> Basic Pointers</h2>
+<div id="outline-container-org47d647b" class="outline-2">
+<h2 id="org47d647b"><span class="section-number-2">1.</span> Basic Pointers</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org86d3dd3" class="outline-3">
-<h3 id="org86d3dd3"><span class="section-number-3">1.1.</span> Size in Memory</h3>
+<div id="outline-container-org562e981" class="outline-3">
+<h3 id="org562e981"><span class="section-number-3">1.1.</span> Size in Memory</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Here we'll declare pointers of different types and check their size in memory.  The results are from running on a 64 bit machine.
@@ -333,8 +333,8 @@ It looks like, while different types take up differing amount of memory, the siz
 </div>
 </div>
 
-<div id="outline-container-orgdc00a6d" class="outline-3">
-<h3 id="orgdc00a6d"><span class="section-number-3">1.2.</span> Basic Use</h3>
+<div id="outline-container-orgf72fb9b" class="outline-3">
+<h3 id="orgf72fb9b"><span class="section-number-3">1.2.</span> Basic Use</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 Here we show how to use pointers.
@@ -342,8 +342,8 @@ Here we show how to use pointers.
 </div>
 </div>
 
-<div id="outline-container-org8b7ff43" class="outline-3">
-<h3 id="org8b7ff43"><span class="section-number-3">1.3.</span> Use: Call by Reference</h3>
+<div id="outline-container-org887893c" class="outline-3">
+<h3 id="org887893c"><span class="section-number-3">1.3.</span> Use: Call by Reference</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 <code>C</code> makes copies of variables that are used in a function.  So if our program
@@ -399,16 +399,16 @@ printf("x is %d, and y is %d\n", x, y);
 </div>
 </div>
 
-<div id="outline-container-org5e17ce9" class="outline-2">
-<h2 id="org5e17ce9"><span class="section-number-2">2.</span> Function Pointers</h2>
+<div id="outline-container-orgf69fb95" class="outline-2">
+<h2 id="orgf69fb95"><span class="section-number-2">2.</span> Function Pointers</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 A function pointer points to a point in memory which is the start of a series of instructions.  They can be used to mimic first-class functions in C.
 </p>
 </div>
 
-<div id="outline-container-org0ad0532" class="outline-3">
-<h3 id="org0ad0532"><span class="section-number-3">2.1.</span> Simple But Useless Example</h3>
+<div id="outline-container-orgcec29b2" class="outline-3">
+<h3 id="orgcec29b2"><span class="section-number-3">2.1.</span> Simple But Useless Example</h3>
 <div class="outline-text-3" id="text-2-1">
 <div class="org-src-container">
 <pre class="src src-C">#include&lt;stdio.h&gt;
@@ -434,8 +434,8 @@ Hello!
 </div>
 </div>
 
-<div id="outline-container-org931457d" class="outline-3">
-<h3 id="org931457d"><span class="section-number-3">2.2.</span> Use: Calling Different Functions</h3>
+<div id="outline-container-org161d2a6" class="outline-3">
+<h3 id="org161d2a6"><span class="section-number-3">2.2.</span> Use: Calling Different Functions</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 In the example below we'll use a pointer to a function to allow the user to decide whether to apply the sum, subtract, or divide function to the supplied numbers. 
@@ -542,12 +542,12 @@ printf("9 / 3 = %f.\n", general_function(3, 9, 3));
 </div>
 
 
-<div id="outline-container-orgce9c993" class="outline-2">
-<h2 id="orgce9c993"><span class="section-number-2">3.</span> Pointers to Pointers</h2>
+<div id="outline-container-orgb8d5154" class="outline-2">
+<h2 id="orgb8d5154"><span class="section-number-2">3.</span> Pointers to Pointers</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org6ddf793" class="outline-3">
-<h3 id="org6ddf793"><span class="section-number-3">3.1.</span> Use, Arrays:</h3>
+<div id="outline-container-org12a85f5" class="outline-3">
+<h3 id="org12a85f5"><span class="section-number-3">3.1.</span> Use, Arrays:</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 We can declare a 2-dimensional array of characters with:
@@ -571,19 +571,32 @@ char hobbits_a[][10] = {"Frodo", "Pippin", "Samwise"};
 
 //Look at string length------
 
-printf("Array of pointers. \n");
+printf("Array of pointers strlen. \n");
 for (int i=0; i&lt;3; i++)
   {
-    printf("String length is: %d \n", strlen(hobbits_p[i]));
+    printf("String length is: %d \n", strlen(*(hobbits_p + i)));
+    printf("Word is: %s \n", *(hobbits_p+i));
   }
 
-printf("Two dimensional array. \n");
+printf("Two dimensional array strlen. \n");
 for (int i=0; i&lt;3; i++)
   {
     printf("String length is: %d \n", strlen(hobbits_a[i]));
   }
 
 //Look at size in memory------
+
+printf("Array of pointers sizeof. \n");
+for (int i=0; i&lt;3; i++)
+  {
+    printf("String length is: %d \n", sizeof *(hobbits_p + i) );
+  }
+
+printf("Two dimensional array sizeof. \n");
+for (int i=0; i&lt;3; i++)
+  {
+    printf("String length is: %d \n", sizeof hobbits_a[i] );
+  }
 
 </pre>
 </div>
@@ -604,8 +617,8 @@ for (int i=0; i&lt;3; i++)
 <tr>
 <td class="org-left">Array</td>
 <td class="org-left">of</td>
-<td class="org-left">pointers.</td>
-<td class="org-right">&#xa0;</td>
+<td class="org-left">pointers</td>
+<td class="org-right">strlen.</td>
 </tr>
 
 <tr>
@@ -616,6 +629,13 @@ for (int i=0; i&lt;3; i++)
 </tr>
 
 <tr>
+<td class="org-left">Word</td>
+<td class="org-left">is:</td>
+<td class="org-left">Frodo</td>
+<td class="org-right">&#xa0;</td>
+</tr>
+
+<tr>
 <td class="org-left">String</td>
 <td class="org-left">length</td>
 <td class="org-left">is:</td>
@@ -623,17 +643,31 @@ for (int i=0; i&lt;3; i++)
 </tr>
 
 <tr>
+<td class="org-left">Word</td>
+<td class="org-left">is:</td>
+<td class="org-left">Pippin</td>
+<td class="org-right">&#xa0;</td>
+</tr>
+
+<tr>
 <td class="org-left">String</td>
 <td class="org-left">length</td>
 <td class="org-left">is:</td>
 <td class="org-right">7</td>
+</tr>
+
+<tr>
+<td class="org-left">Word</td>
+<td class="org-left">is:</td>
+<td class="org-left">Samwise</td>
+<td class="org-right">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">Two</td>
 <td class="org-left">dimensional</td>
-<td class="org-left">array.</td>
-<td class="org-right">&#xa0;</td>
+<td class="org-left">array</td>
+<td class="org-right">strlen.</td>
 </tr>
 
 <tr>
@@ -655,6 +689,62 @@ for (int i=0; i&lt;3; i++)
 <td class="org-left">length</td>
 <td class="org-left">is:</td>
 <td class="org-right">7</td>
+</tr>
+
+<tr>
+<td class="org-left">Array</td>
+<td class="org-left">of</td>
+<td class="org-left">pointers</td>
+<td class="org-right">sizeof.</td>
+</tr>
+
+<tr>
+<td class="org-left">String</td>
+<td class="org-left">length</td>
+<td class="org-left">is:</td>
+<td class="org-right">8</td>
+</tr>
+
+<tr>
+<td class="org-left">String</td>
+<td class="org-left">length</td>
+<td class="org-left">is:</td>
+<td class="org-right">8</td>
+</tr>
+
+<tr>
+<td class="org-left">String</td>
+<td class="org-left">length</td>
+<td class="org-left">is:</td>
+<td class="org-right">8</td>
+</tr>
+
+<tr>
+<td class="org-left">Two</td>
+<td class="org-left">dimensional</td>
+<td class="org-left">array</td>
+<td class="org-right">sizeof.</td>
+</tr>
+
+<tr>
+<td class="org-left">String</td>
+<td class="org-left">length</td>
+<td class="org-left">is:</td>
+<td class="org-right">10</td>
+</tr>
+
+<tr>
+<td class="org-left">String</td>
+<td class="org-left">length</td>
+<td class="org-left">is:</td>
+<td class="org-right">10</td>
+</tr>
+
+<tr>
+<td class="org-left">String</td>
+<td class="org-left">length</td>
+<td class="org-left">is:</td>
+<td class="org-right">10</td>
 </tr>
 </tbody>
 </table>
@@ -664,7 +754,7 @@ for (int i=0; i&lt;3; i++)
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Matt Brigida, Ph.D.</p>
-<p class="date">Created: 2021-09-24 Fri 14:48</p>
+<p class="date">Created: 2021-09-24 Fri 14:59</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
