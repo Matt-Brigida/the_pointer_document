@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-24 Fri 15:00 -->
+<!-- 2021-10-29 Fri 14:41 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Pointer Document</title>
-<meta name="generator" content="Org mode" />
 <meta name="author" content="Matt Brigida, Ph.D." />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,8 +31,9 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -41,21 +42,21 @@
   pre.src {
     position: relative;
     overflow: auto;
-    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
+    top: -8px;
+    right: 12px;
     padding: 3px;
-    border: 1px solid black;
+    color: #555;
+    background-color: #f2f2f299;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -191,7 +192,6 @@
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { width: 90%; }
-  /*]]>*/-->
 </style>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
 <link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
@@ -199,52 +199,31 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
 <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
-</script>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">The Pointer Document</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orge3b9591">1. Basic Pointers</a>
+<li><a href="#org20bd36b">1. Basic Pointers</a>
 <ul>
-<li><a href="#orgdeeb853">1.1. Size in Memory</a></li>
-<li><a href="#org65ec4cf">1.2. Basic Use</a></li>
-<li><a href="#orgf71623a">1.3. Use: Call by Reference</a></li>
+<li><a href="#orgfdc9840">1.1. Size in Memory</a></li>
+<li><a href="#orgde251d1">1.2. Basic Use</a></li>
+<li><a href="#org0848402">1.3. Use: Call by Reference</a></li>
 </ul>
 </li>
-<li><a href="#org63a2345">2. Function Pointers</a>
+<li><a href="#org4829375">2. Function Pointers</a>
 <ul>
-<li><a href="#org31d2c5a">2.1. Simple But Useless Example</a></li>
-<li><a href="#org2e73ac5">2.2. Use: Calling Different Functions</a></li>
+<li><a href="#orgaf012c2">2.1. Simple But Useless Example</a></li>
+<li><a href="#org5253c15">2.2. Use: Calling Different Functions</a></li>
 </ul>
 </li>
-<li><a href="#org2d79ef0">3. Pointers to Pointers</a>
+<li><a href="#org201247f">3. Pointers to Pointers</a>
 <ul>
-<li><a href="#orgb077961">3.1. Use, Arrays [TODO Need to fix/move, muddled]:</a></li>
+<li><a href="#orgc37f6cb">3.1. Dynamically Allocate Memory for Arrays</a></li>
+<li><a href="#org65aab3a">3.2. Use, Arrays [TODO Need to fix/move, muddled]:</a></li>
 </ul>
 </li>
 </ul>
@@ -263,12 +242,12 @@ The following code is executed in emacs org mode with the results returned to th
 In other words this should not be surprising.
 </pre>
 
-<div id="outline-container-orge3b9591" class="outline-2">
-<h2 id="orge3b9591"><span class="section-number-2">1.</span> Basic Pointers</h2>
+<div id="outline-container-org20bd36b" class="outline-2">
+<h2 id="org20bd36b"><span class="section-number-2">1.</span> Basic Pointers</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgdeeb853" class="outline-3">
-<h3 id="orgdeeb853"><span class="section-number-3">1.1.</span> Size in Memory</h3>
+<div id="outline-container-orgfdc9840" class="outline-3">
+<h3 id="orgfdc9840"><span class="section-number-3">1.1.</span> Size in Memory</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Here we'll declare pointers of different types and check their size in memory.  The results are from running on a 64 bit machine.
@@ -333,8 +312,8 @@ It looks like, while different types take up differing amount of memory, the siz
 </div>
 </div>
 
-<div id="outline-container-org65ec4cf" class="outline-3">
-<h3 id="org65ec4cf"><span class="section-number-3">1.2.</span> Basic Use</h3>
+<div id="outline-container-orgde251d1" class="outline-3">
+<h3 id="orgde251d1"><span class="section-number-3">1.2.</span> Basic Use</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 Here we show how to use pointers.
@@ -342,8 +321,8 @@ Here we show how to use pointers.
 </div>
 </div>
 
-<div id="outline-container-orgf71623a" class="outline-3">
-<h3 id="orgf71623a"><span class="section-number-3">1.3.</span> Use: Call by Reference</h3>
+<div id="outline-container-org0848402" class="outline-3">
+<h3 id="org0848402"><span class="section-number-3">1.3.</span> Use: Call by Reference</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 <code>C</code> makes copies of variables that are used in a function.  So if our program
@@ -399,16 +378,16 @@ printf("x is %d, and y is %d\n", x, y);
 </div>
 </div>
 
-<div id="outline-container-org63a2345" class="outline-2">
-<h2 id="org63a2345"><span class="section-number-2">2.</span> Function Pointers</h2>
+<div id="outline-container-org4829375" class="outline-2">
+<h2 id="org4829375"><span class="section-number-2">2.</span> Function Pointers</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 A function pointer points to a point in memory which is the start of a series of instructions.  They can be used to mimic first-class functions in C.
 </p>
 </div>
 
-<div id="outline-container-org31d2c5a" class="outline-3">
-<h3 id="org31d2c5a"><span class="section-number-3">2.1.</span> Simple But Useless Example</h3>
+<div id="outline-container-orgaf012c2" class="outline-3">
+<h3 id="orgaf012c2"><span class="section-number-3">2.1.</span> Simple But Useless Example</h3>
 <div class="outline-text-3" id="text-2-1">
 <div class="org-src-container">
 <pre class="src src-C">#include&lt;stdio.h&gt;
@@ -434,8 +413,8 @@ Hello!
 </div>
 </div>
 
-<div id="outline-container-org2e73ac5" class="outline-3">
-<h3 id="org2e73ac5"><span class="section-number-3">2.2.</span> Use: Calling Different Functions</h3>
+<div id="outline-container-org5253c15" class="outline-3">
+<h3 id="org5253c15"><span class="section-number-3">2.2.</span> Use: Calling Different Functions</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 In the example below we'll use a pointer to a function to allow the user to decide whether to apply the sum, subtract, or divide function to the supplied numbers. 
@@ -542,13 +521,109 @@ printf("9 / 3 = %f.\n", general_function(3, 9, 3));
 </div>
 
 
-<div id="outline-container-org2d79ef0" class="outline-2">
-<h2 id="org2d79ef0"><span class="section-number-2">3.</span> Pointers to Pointers</h2>
+<div id="outline-container-org201247f" class="outline-2">
+<h2 id="org201247f"><span class="section-number-2">3.</span> Pointers to Pointers</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgb077961" class="outline-3">
-<h3 id="orgb077961"><span class="section-number-3">3.1.</span> Use, Arrays [TODO Need to fix/move, muddled]:</h3>
+<div id="outline-container-orgc37f6cb" class="outline-3">
+<h3 id="orgc37f6cb"><span class="section-number-3">3.1.</span> Dynamically Allocate Memory for Arrays</h3>
 <div class="outline-text-3" id="text-3-1">
+<p>
+There is a <a href="https://www.learn-c.org/en/Arrays_and_Pointers">classic example of a pointer to pointer in the Learn C book here.</a>
+</p>
+
+<p>
+Below is a similar example, but it doesn't yet work.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C">#include&lt;string.h&gt;
+#include &lt;stdio.h&gt;
+#include&lt;stdlib.h&gt;
+
+int main(){
+
+char *band = "Melvins";
+char *song = "A History of Bad Men";
+
+int length_row_1 = strlen(band);
+int length_row_2 = strlen(song);
+
+// here we have a pointer to pointer to each row.  Each row is a pointer.
+char **music = (char **) malloc(2 * sizeof(char *));
+
+// For each row, allocate memory for ncols elements
+music[0] = (char *) malloc(length_row_1 * sizeof(char));
+music[1] = (char *) malloc(length_row_2 * sizeof(char));
+
+ for (int i = 0; i &lt; length_row_1; i++) {
+   *(music[0] + i) = band[i];
+ }
+
+
+ for (int i = 0; i &lt; length_row_2; i++) {
+   *(music[1] + i) = band[i];
+ }
+
+ for (int i = 0; i &lt; length_row_1; i++) {
+   printf("%c", music[0][i]);
+ }
+
+    printf("\n");
+
+for (int i = 0; i &lt; length_row_2; i++) {
+   printf("%c", music[1][i]);
+}
+
+    printf("\n");
+
+
+// Free individual rows
+free(music[0]);
+free(music[1]);
+
+// Free the top-level pointer
+free(music);
+
+}
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Melvins</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Melvins A</td>
+<td class="org-left">History</td>
+<td class="org-left">of</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+^^ So this doesn't work as expected.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org65aab3a" class="outline-3">
+<h3 id="org65aab3a"><span class="section-number-3">3.2.</span> Use, Arrays [TODO Need to fix/move, muddled]:</h3>
+<div class="outline-text-3" id="text-3-2">
 <p>
 We can declare a 2-dimensional array of characters with:
 </p>
@@ -754,7 +829,7 @@ for (int i=0; i&lt;3; i++)
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Matt Brigida, Ph.D.</p>
-<p class="date">Created: 2021-09-24 Fri 15:00</p>
+<p class="date">Created: 2021-10-29 Fri 14:41</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
